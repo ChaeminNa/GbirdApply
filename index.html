@@ -390,11 +390,18 @@ document.addEventListener('DOMContentLoaded', async function() {
       if (!vw) return;
       document.querySelectorAll('[style*="width"]').forEach(function (el) {
         var w = el.style.getPropertyValue('width');
-        if (w && w.indexOf('px') !== -1 && parseFloat(w) > vw + 4) {
-          el.style.setProperty('width', '100%', 'important');
-          el.style.setProperty('max-width', '100%', 'important');
-          el.style.setProperty('height', 'auto', 'important');
-          el.style.setProperty('box-sizing', 'border-box', 'important');
+        if (!w || w.indexOf('px') === -1) return;
+        var rect = el.getBoundingClientRect();
+        if (rect.width <= vw + 4 && rect.right <= vw + 4) return;
+        el.style.setProperty('width', '100%', 'important');
+        el.style.setProperty('max-width', '100%', 'important');
+        el.style.setProperty('height', 'auto', 'important');
+        el.style.setProperty('box-sizing', 'border-box', 'important');
+        var rect2 = el.getBoundingClientRect();
+        var overflowPx = rect2.right - vw;
+        if (overflowPx > 4) {
+          var ratio = Math.max(0.5, (rect2.width - overflowPx - 4) / rect2.width);
+          el.style.setProperty('zoom', ratio, 'important');
         }
       });
     }
@@ -402,9 +409,11 @@ document.addEventListener('DOMContentLoaded', async function() {
     mo.observe(document.body, { attributes: true, attributeFilter: ['style'], childList: true, subtree: true });
     window.addEventListener('resize', sweep);
     sweep();
-    setTimeout(sweep, 300);
-    setTimeout(sweep, 1000);
-    setTimeout(sweep, 2000);
+    setTimeout(sweep, 150);
+    setTimeout(sweep, 400);
+    setTimeout(sweep, 900);
+    setTimeout(sweep, 1600);
+    setTimeout(sweep, 2500);
   })();
   </script>
 </body>
