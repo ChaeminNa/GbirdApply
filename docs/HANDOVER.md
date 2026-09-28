@@ -1,5 +1,7 @@
 # G-Bird 지원서 인수인계
 
+> ⚠️ **이 문서는 2026 가을학기까지 쓰던 예전 지원서(Apps Script + 시트) 기준입니다.** 2027 봄학기부터는 홈페이지 저장소 `recruit/`와 Supabase DB를 쓰는 새 지원서로 바뀌었습니다 — [신입 모집 매뉴얼](https://github.com/seungjae24/g-bird/blob/main/docs/manual/07-신입-모집.md).
+
 이 저장소는 G-Bird 동아리 신입 부원 모집 지원서 웹앱을 보관하는 인수인계용 저장소입니다.
 
 ## 구성

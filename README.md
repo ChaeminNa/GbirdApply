@@ -1,18 +1,17 @@
 # G-Bird 지원서 (GbirdApply)
 
-KAIST 배드민턴 동아리 **G-Bird**의 신입 부원 지원서 웹앱입니다. 지원자는 링크 하나로 지원서를 작성/수정하고 면접·참석 여부를 확인하며, 운영진은 같은 화면에서 지원자 목록을 확인하고 면접 시각·합격 여부를 입력합니다.
+KAIST 배드민턴 동아리 **G-Bird**의 신입 부원 지원서 웹앱이 배포되는 저장소입니다.
 
-- 프런트엔드: 이 저장소의 **`index.html` 하나뿐**입니다. 별도의 빌드 과정이 없고, 정적 파일로 아무 곳에나 올려서(GitHub Pages 등) 열면 동작합니다.
-- 백엔드/데이터베이스: **Google Apps Script + Google 스프레드시트**. 별도 서버나 DB가 없습니다. 지원자 데이터는 전부 스프레드시트 안에 있습니다.
+> **2026-09-28부터 지원서는 홈페이지 저장소(`seungjae24/g-bird`)의 `recruit/` 폴더에서 만들고, 홈페이지와 같은 Supabase DB를 씁니다.**
+> 이 저장소에는 빌드된 결과물만 올라갑니다(`npm run deploy:recruit`). 여기서 직접 고치지 마세요.
+> 사용법·운영 절차·시트 동기화 설정은 홈페이지 저장소의 [`docs/manual/07-신입-모집.md`](https://github.com/seungjae24/g-bird/blob/main/docs/manual/07-신입-모집.md)를 보세요.
 
-> ⚠️ `index.html`은 텍스트 에디터로 손 편집하는 파일이 아닙니다. 왜 그런지, 그래도 고쳐야 할 때 어떻게 하는지는 [`docs/setup/02-index-html-직접-수정.md`](docs/setup/02-index-html-직접-수정.md)에 정리해뒀습니다.
+- 새 지원서 미리보기: `https://chaeminna.github.io/GbirdApply/next/`
+- 실제 지원 주소: `https://chaeminna.github.io/GbirdApply/` — 새 지원서로 전환하기 전까지는 2026 가을학기까지 쓰던 예전 지원서(`index.html`, Google Apps Script + 시트 방식)가 그대로 떠 있습니다. 전환은 `npm run deploy:recruit -- --live`.
 
-## 문서 구조
+## 예전 지원서(2026 가을까지)
 
-인수인계·운영에 필요한 내용은 전부 [`docs/`](docs/) 아래에 있습니다. 처음이라면 [`docs/HANDOVER.md`](docs/HANDOVER.md)부터 읽어주세요.
+루트의 `index.html`(Claude Design 번들, 백엔드는 Apps Script + 스프레드시트)과 `docs/`는 예전 방식의 기록입니다. 새 지원서로 전환한 뒤에는 `index.html`은 git 기록에만 남고, 예전 시즌 지원자 기록은 구글 시트에 그대로 있습니다.
 
-- [`docs/HANDOVER.md`](docs/HANDOVER.md) — 인수인계 시 전체 그림을 잡기 위한 요약. 새 담당자가 가장 먼저 볼 문서.
-- [`docs/manual/`](docs/manual/) — 화면별 사용 매뉴얼 (지원자 화면, 관리자 화면)
-- [`docs/setup/`](docs/setup/) — Apps Script 배포, `index.html`을 직접 고쳐야 할 때의 절차
-- [`docs/integrations/`](docs/integrations/) — Google 스프레드시트 연동 구조(컬럼, API 액션 목록)
-- [`docs/IMPROVEMENTS.md`](docs/IMPROVEMENTS.md) — 앞으로 하면 좋을 개선 아이디어 목록
+- [`docs/HANDOVER.md`](docs/HANDOVER.md) — 예전 방식 인수인계 요약
+- [`docs/setup/02-index-html-직접-수정.md`](docs/setup/02-index-html-직접-수정.md) — 예전 번들 파일을 고칠 때의 절차
